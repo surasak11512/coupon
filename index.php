@@ -74,6 +74,7 @@
 
 <script>
 
+    // enter เลขบัตรประชาชน+ชื่อสกุล
     document.getElementById('formSearch').addEventListener('submit',()=>{ 
         document.getElementById('searchTxt').value="";
     });
@@ -81,13 +82,28 @@
     var elements = document.getElementsByClassName('print-sticker');
 
     var myFunction = function() {
-        var attribute = this.getAttribute("data-id");
-        alert(attribute);
+        var id = this.getAttribute("data-id");
+        // alert(attribute);
+
+        var w = window.open('print_coupon.php?id='+id,'Popup_Window','toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=400,height=300,left = 312,top = 234');
+        // this.target = 'Popup_Window';
+        w.print();
+        w.close();
+
     };
 
     for (var i = 0; i < elements.length; i++) {
         elements[i].addEventListener('click', myFunction, false);
     }
+
+
+
+    // var myFormXray = document.getElementById('formIDXray');
+    // myFormXray.onsubmit = function() {
+    //     var w = window.open('about:blank','Popup_Window','toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=400,height=300,left = 312,top = 234');
+    //     this.target = 'Popup_Window';
+    // };
+    
 
 </script>
 </body>
